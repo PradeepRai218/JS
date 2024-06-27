@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: sans-serif;
+        }
+        .modal{
+            width: 350px;
+            height: 350px;
+            box-shadow: 0px 0px 10px 2px #ccc;
+            position: fixed;
+            top: -500px;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: 0.5s;
+        }
+        .modal h2{
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            font-weight: normal;
+            font-size: 20px;
+           
+            padding:10px 0px;
+            position: relative;
+        }
+        .modal h2 span{
+            position: absolute;
+            right: 10px;
+            top: 0px;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        .showModal{
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <h2>Enquiry Now
+            <span>&times;</span>
+        </h2>
+    </div>
+    <button>Show Modal</button>
+    <button id="btn1">toggle Modal</button>
+</body>
+<script>
+    let btn=document.querySelector("button");
+    let modal=document.querySelector(".modal")
+    let closeIcon=document.querySelector(".modal h2 span")
+    btn.addEventListener("click",()=>{
+        modal.classList.add('showModal')
+    })
+
+    closeIcon.addEventListener("click",()=>{
+        modal.classList.remove('showModal')
+    })
+
+    document.querySelector("#btn1").addEventListener("click",()=>{
+        modal.classList.toggle("showModal")
+    })
+</script>
+</html>
